@@ -1,0 +1,239 @@
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    flex-grow: 1;
+}
+
+.quantity-badge {
+    font-size: 0.8rem;
+}
+
+.cart-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background: #f8f9fa;
+}
+
+.invoice-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.invoice-total {
+    font-weight: bold;
+    border-top: 2px solid #333;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.stock-low {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.stock-available {
+    color: #28a745;
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+/* Sistema de Notificaciones Mejorado */
+.custom-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    min-width: 300px;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: none;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.custom-alert.hide {
+    animation: slideOutRight 0.3s ease-in;
+}
+
+.custom-alert.success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border-left: 4px solid #1e7e34;
+}
+
+.custom-alert.error {
+    background: linear-gradient(135deg, #dc3545, #e83e8c);
+    color: white;
+    border-left: 4px solid #c82333;
+}
+
+.custom-alert.warning {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: white;
+    border-left: 4px solid #e0a800;
+}
+
+.custom-alert.info {
+    background: linear-gradient(135deg, #17a2b8, #6f42c1);
+    color: white;
+    border-left: 4px solid #138496;
+}
+
+.custom-alert .alert-content {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.custom-alert .alert-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.custom-alert .alert-message {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.custom-alert .alert-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    margin-left: 10px;
+}
+
+.custom-alert .alert-close:hover {
+    opacity: 1;
+}
+
+/* Animaciones */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Toast de éxito para agregar al carrito */
+.cart-toast {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+    border: none;
+}
+
+.cart-toast .toast-body {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.cart-toast .toast-body::before {
+    content: "✅";
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Modal de confirmación mejorado */
+.confirm-modal .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.confirm-modal .modal-header {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border: none;
+}
+
+.confirm-modal .modal-body {
+    padding: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.confirm-modal .modal-footer {
+    border: none;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+.confirm-modal .btn {
+    min-width: 100px;
+    border-radius: 8px;
+    font-weight: 500;
+}
