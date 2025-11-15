@@ -237,3 +237,243 @@
     border-radius: 8px;
     font-weight: 500;
 }
+
+/* Sistema de Notificaciones Mejorado y Estético */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 400px;
+    pointer-events: none;
+}
+
+.custom-alert {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: none;
+    margin-bottom: 15px;
+    padding: 0;
+    overflow: hidden;
+    animation: slideInRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: all;
+    border-left: 4px solid;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.custom-alert:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.custom-alert.hide {
+    animation: slideOutRight 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Colores y estilos específicos para cada tipo */
+.custom-alert.success {
+    border-left-color: #10b981;
+    background: linear-gradient(135deg, #f0fdf4, #ffffff);
+}
+
+.custom-alert.error {
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, #fef2f2, #ffffff);
+}
+
+.custom-alert.warning {
+    border-left-color: #f59e0b;
+    background: linear-gradient(135deg, #fffbeb, #ffffff);
+}
+
+.custom-alert.info {
+    border-left-color: #3b82f6;
+    background: linear-gradient(135deg, #eff6ff, #ffffff);
+}
+
+/* Contenido de la notificación */
+.custom-alert .alert-content {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    gap: 15px;
+}
+
+.custom-alert .alert-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.custom-alert.success .alert-icon {
+    background: #10b981;
+    color: white;
+}
+
+.custom-alert.error .alert-icon {
+    background: #ef4444;
+    color: white;
+}
+
+.custom-alert.warning .alert-icon {
+    background: #f59e0b;
+    color: white;
+}
+
+.custom-alert.info .alert-icon {
+    background: #3b82f6;
+    color: white;
+}
+
+.custom-alert .alert-message {
+    flex-grow: 1;
+    font-weight: 500;
+    color: #374151;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.custom-alert .alert-close {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-alert .alert-close:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+/* Toast para el carrito */
+.cart-toast {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    border: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+.cart-toast .toast {
+    background: transparent;
+    border: none;
+}
+
+.cart-toast .toast-body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.cart-toast .toast-body::before {
+    content: "✓";
+    background: rgba(255,255,255,0.2);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Progress bar para notificaciones */
+.notification-progress {
+    height: 3px;
+    background: rgba(0,0,0,0.1);
+    width: 100%;
+    overflow: hidden;
+}
+
+.notification-progress-bar {
+    height: 100%;
+    transition: width linear;
+}
+
+.custom-alert.success .notification-progress-bar {
+    background: #10b981;
+}
+
+.custom-alert.error .notification-progress-bar {
+    background: #ef4444;
+}
+
+.custom-alert.warning .notification-progress-bar {
+    background: #f59e0b;
+}
+
+.custom-alert.info .notification-progress-bar {
+    background: #3b82f6;
+}
+
+/* Animaciones mejoradas */
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+/* Efectos de entrada escalonados */
+.custom-alert:nth-child(1) { animation-delay: 0s; }
+.custom-alert:nth-child(2) { animation-delay: 0.05s; }
+.custom-alert:nth-child(3) { animation-delay: 0.1s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .notification-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .custom-alert {
+        margin-bottom: 10px;
+    }
+    
+    .custom-alert .alert-content {
+        padding: 15px;
+        gap: 12px;
+    }
+}

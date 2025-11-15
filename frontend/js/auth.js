@@ -147,17 +147,15 @@ class Auth {
         return this.user;
     }
 
-    // En auth.js, busca showMessage y reemplaza su contenido:
 showMessage(message, type) {
-    // Solución temporal - usar alerts normales
-    if (type === 'error') {
-        alert('❌ ' + message);
+    if (typeof notificationManager !== 'undefined') {
+        const duration = type === 'error' ? 5000 : 3000;
+        notificationManager.show(message, type, duration);
     } else {
-        alert('✅ ' + message);
+        // Fallback temporal
+        const alertType = type === 'error' ? 'danger' : 'success';
+        alert(`${type === 'error' ? '❌' : '✅'} ${message}`);
     }
-    
-    // También mostrar en consola para debug
-    console.log(`${type.toUpperCase()}: ${message}`);
 }
 
     updateAdminUI() {
